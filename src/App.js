@@ -1,5 +1,5 @@
 import { useState, useReducer } from "react";
-import "./App.css";
+import Todo from "./Student";
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
