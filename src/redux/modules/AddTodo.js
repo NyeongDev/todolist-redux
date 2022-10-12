@@ -18,6 +18,9 @@ const addTodo = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       // console.log(action);
+      // console.log("@state", state);
+      // console.log("@initialState", initialState);
+      // console.log("@addTodzo", addTodo);
       return [
         ...state,
         {
