@@ -1,23 +1,28 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { checkTodo, delTodo } from "../redux/modules/AddTodo";
 
-const Todo = ({ title }) => {
-  // console.log(title);
-  const navigate = useNavigate();
-  const { id } = useParams();
-
-  console.log("@{id}", id);
-  console.log("@useParams", useParams);
-  console.log("@useParams()", useParams());
-
+const Todo = ({ id, title, body, isDone }) => {
+  console.log("@todo props", isDone, id, title, body);
+  const dispatch = useDispatch();
   return (
     <div>
       {title}
+      {body}
+      <Link to={`/${id}`}>상세페이지</Link>
       <button
         onClick={() => {
-          navigate("/detail");
+          dispatch(delTodo(id));
         }}
       >
-        상세페이지
+        삭제
+      </button>
+      <button
+        onClick={() => {
+          dispatch(checkTodo(id));
+        }}
+      >
+        {isDone ? "취소" : "완료"}
       </button>
     </div>
   );
