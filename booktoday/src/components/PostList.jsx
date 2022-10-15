@@ -7,7 +7,10 @@ const PostList = () => {
   return (
     <>
       {posts.map(post => {
-        return <PostItem key={post.id} />;
+        const { name, title, body, id } = post;
+        return (
+          <PostItem key={id} id={id} name={name} title={title} body={body} />
+        );
       })}
     </>
   );

@@ -13,8 +13,9 @@ const bookSlice = createSlice({
       // console.log(state);
       console.log("action.payload", action.payload);
       const id = state[state.length - 1]?.id + 1 || 0;
-      state.push(...action.payload, id); //return, ...state 생략, 기존의 state에 = action을 넣어줘
+      state.push({ ...action.payload, id }); //return, ...state 생략, 기존의 state에 = action을 넣어줘
     },
+    //[{title:"", review:""}, id]
     getReviewList: (state, action) => {},
   },
 });
